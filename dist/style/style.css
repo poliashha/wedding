@@ -119,6 +119,10 @@ body {
   gap: 16px;
 }
 
+.nowrap{
+   white-space: nowrap;
+}
+
 .conteiner {
   display: flex;
   flex-direction: column;
@@ -274,5 +278,8 @@ input:focus {
   }
   .bright-text {
     font-size: clamp(25px, calc(-1.785714px + 8.928571vw), 35px);
+  }
+  .nowrap{
+    font-size: clamp(25px, calc(-1.785714px + 8.928571vw), 30px);
   }
 }

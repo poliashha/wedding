@@ -273,7 +273,7 @@ input:focus {
   color: var(--hot-pink-color);
 }
 
-@media (max-width: 412px) {
+@media (max-width: 400px) {
   img {
     max-width: 100%;
   }

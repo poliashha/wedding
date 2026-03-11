@@ -303,6 +303,11 @@ img {
 
 }
 
+.form-send{
+
+  text-align: center;
+}
+
 
 @media (max-width: 39px) {
   img {

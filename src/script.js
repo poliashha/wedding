@@ -11,7 +11,7 @@ async function sendQuestionnaire(event) {
   const { name, presence, allergy, drinks } = Object.fromEntries(
     new FormData(form).entries(),
   );
-  const text = `Анкета от ${name},будут ли присутвовать: ${presence}, есть ли аллергия: ${allergy}, предпочтения по напиткам: ${drinks}`;
+  const text = `Анкета от ${name},\nбудут ли присутствовать: ${presence},\nесть ли аллергия: ${allergy},\nпредпочтения по напиткам: ${drinks}`;
 
   try {
     formBth.textContent = "Отправка..."
@@ -27,8 +27,8 @@ async function sendQuestionnaire(event) {
     });
 
     if (response.ok) {
-      formSendResult.textContent = 'Спасибо!';
-      formSendResult.computedStyleMap.color = 'green';
+      formSendResult.textContent = 'Спасибо! Анкета отправлена.';
+      
       form.reset();
     }else{
       throw new Error(response.statusText);
@@ -36,7 +36,7 @@ async function sendQuestionnaire(event) {
   } catch (error) {
     console.error(error);
     formSendResult.textContent= 'Анкета не отправлена, попробуйте позже';
-    formSendResult.computedStyleMap.color = 'red';
+    
   }finally{
     formBth.textContent= "Подтверидить присутсвие";
   }
@@ -58,3 +58,5 @@ document.addEventListener("DOMContentLoaded", function () {
   noRadio.addEventListener("change", toggleAllergyField);
   toggleAllergyField();
 });
+
+console.log("sendQuestionnaire вызвана", Date.now());

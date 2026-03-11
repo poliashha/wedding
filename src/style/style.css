@@ -273,6 +273,17 @@ input:focus {
   color: var(--hot-pink-color);
 }
 
+img {
+  /* Запрещает размытие при масштабировании */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  
+  /* Для плавных градиентов и фото */
+  image-rendering: high-quality;
+}
+
+
 @media (max-width: 392px) {
   img {
     max-width: 100%;

@@ -36,11 +36,10 @@ body {
 }
 
 .main {
-  max-width: 1200px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* всё по центру по горизонтали */
+  justify-content: center;
   align-items: center;
 }
 
@@ -248,6 +247,29 @@ input:focus {
 .allergy-field.show {
   max-height: 100px;
   display: block;
+}
+.checkbox{
+ display: flex;
+ align-items: center;
+ gap: 2px;
+ 
+}
+
+.checkbox__input{
+  appearance: none;
+  display: inline-flex;
+  align-items: center;    
+  justify-content: center; 
+  border: 1px solid var(--light-pink-color);
+  background-color: transparent;
+  width: 14px;
+  height: 14px;
+}
+
+.checkbox__input:checked::after{
+  content: "✓";
+  font-size: 12px;
+
 }
 
 .button {

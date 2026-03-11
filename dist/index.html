@@ -21,7 +21,7 @@
     <main class="main">
       <article class="distinguished">
         <div class="block">
-          <img src="./images/small.png" alt="" />
+          <img src="./images/small2.png" alt="" />
           <h2 class="bright-text dark-text">у нас свадьба!</h2>
           <p class="title grey-text">
             Дорогие и любимые, мы приглашаем вас разделить с нами этот важный
@@ -33,9 +33,11 @@
       <article class="card dark location">
         <h2 class="bright-text nowrap">ЛОКАЦИЯ ТОРЖЕСТВА</h2>
         <p class="title">
-          Регистрация брака состоится в г. Вологда по адресу: ул. Комсомльская, 4
+          Церимония бракосочетания состоится по адресу: Городской Дворец Культуры, Ленина 17<br/>Время проведения: 15:00
+
         </p>
-        <p class="title">Банкет по адресу ул. Герцена, 27, Вологда</p>
+        <p class="title">Банкет по адресу: ресторан «Атриум», Герцена 2<br/>Сбор гостей: 16:00
+        </p>
         <img class="anchor" src="./images/anchor.svg" alt="" />
       </article>
       <article class="card light">
@@ -75,14 +77,14 @@
         <img src="./images/circle.svg" alt="" />
       </article>
       <article class="card dark form">
-        <h2 class="bright-text">ВЫ придете?</h2>
+        <h2 class="bright-text">Анкета гостя</h2>
         <form action="" class="form-box">
           <label for="name" class="visually-hidden">Имя Фамилия</label>
           <input
             class="input"
             name="name "
             id="name"
-            type="name"
+            type="text"
             placeholder="Имя Фамилия"
           />
           <fieldset class="radio">
@@ -112,15 +114,74 @@
               placeholder="Укажите на что аллергия"
             />
           </div>
-
-          <label for="drinks" class="visually-hidden">Имя Фамилия</label>
+<fieldset class="radio">
+  <h2 class="title wishes-text radio-text">
+             Что предпочитаете из напитков?
+            </h2>
+          <label class="checkbox">
           <input
-            class="input"
-            name="drinks "
-            id="drinks"
-            type="name"
-            placeholder="Предпочтения по напиткам"
-          />
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Белое вино</span>
+          </label>
+           <label class="checkbox">
+          <input
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Красное вино</span>
+          </label>
+           <label class="checkbox">
+          <input
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Шампанское</span>
+          </label>
+          <label class="checkbox">
+          <input
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Коньяк</span>
+          </label>
+           <label class="checkbox">
+          <input
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Виски</span>
+          </label>
+           <label class="checkbox">
+          <input
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Водка</span>
+          </label>
+           <label class="checkbox">
+          <input
+            name="drinks"
+            id="whitewine"
+            type="checkbox"
+            class="checkbox__input"/>
+            <span class="dicorete-checkbox"></span>
+            <span>Безалкогольные напитки</span>
+          </label>
+          </fieldset>
           <button class="button" type="submit">Подтвердить присутствие</button>
         </form>
       </article>

@@ -78,28 +78,49 @@
       </article>
       <article class="card dark form">
         <h2 class="bright-text">Анкета гостя</h2>
-        <form action="" class="form-box">
+        <form action="" class="form-box" onsubmit="sendQuestionnaire(event)">
           <label for="name" class="visually-hidden">Имя Фамилия</label>
           <input
             class="input"
-            name="name "
+            name="name"
             id="name"
             type="text"
-            placeholder="Имя Фамилия"
+            placeholder="Имя Фамилия" required
           />
+          <fieldset class="radio">
+            <h2 class="title wishes-text radio-text">
+              Сможете ли вы присутствовать?
+            </h2>
+            <label class="custom-radio">
+              <input type="radio" name="presence" value="да" id="presenceYes" />
+              <span class="radio-circle"></span>
+              <span>Да</span>
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="presence" value="нет" id="presenceNo"/>
+              <span class="radio-circle"></span>
+              <span>Нет</span>
+            </label>
+            <label class="custom-radio">
+              <input type="radio" name="presence" value="ответят позже" id="presenceDN"/>
+              <span class="radio-circle"></span>
+              <span>Отвечу позже, до ...</span>
+            </label>
+          </fieldset>
+
           <fieldset class="radio">
             <h2 class="title wishes-text radio-text">
               Есть ли у вас аллергия?
             </h2>
             <label class="custom-radio">
-              <input type="radio" name="allergy" value="no" checked id="allergyNo" />
+              <input type="radio" name="allergy" value="нет" id="allergyNo" />
               <span class="radio-circle"></span>
-              <span>НЕТ</span>
+              <span>Нет</span>
             </label>
             <label class="custom-radio">
-              <input type="radio" name="allergy" value="yes" id="allergyYes"/>
+              <input type="radio" name="allergy" value="да" id="allergyYes"/>
               <span class="radio-circle"></span>
-              <span>ДА</span>
+              <span>Да</span>
             </label>
           </fieldset>
 
@@ -112,6 +133,7 @@
               type="text"
               id="allergyInput"
               placeholder="Укажите на что аллергия"
+              name="listallergy"
             />
           </div>
 <fieldset class="radio">
@@ -123,7 +145,8 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Белое вино"/>
             <span class="dicorete-checkbox"></span>
             <span>Белое вино</span>
           </label>
@@ -132,7 +155,8 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Красное вино"/>
             <span class="dicorete-checkbox"></span>
             <span>Красное вино</span>
           </label>
@@ -141,7 +165,8 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Шампанское"/>
             <span class="dicorete-checkbox"></span>
             <span>Шампанское</span>
           </label>
@@ -150,7 +175,8 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Коньяк"/>
             <span class="dicorete-checkbox"></span>
             <span>Коньяк</span>
           </label>
@@ -159,7 +185,8 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Виски"/>
             <span class="dicorete-checkbox"></span>
             <span>Виски</span>
           </label>
@@ -168,7 +195,8 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Водка"/>
             <span class="dicorete-checkbox"></span>
             <span>Водка</span>
           </label>
@@ -177,12 +205,14 @@
             name="drinks"
             id="whitewine"
             type="checkbox"
-            class="checkbox__input"/>
+            class="checkbox__input"
+            value="Безалкогольные напитки"/>
             <span class="dicorete-checkbox"></span>
             <span>Безалкогольные напитки</span>
           </label>
           </fieldset>
           <button class="button" type="submit">Подтвердить присутствие</button>
+          <div class="form-send"></div>
         </form>
       </article>
     </main>

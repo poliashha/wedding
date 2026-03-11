@@ -274,17 +274,15 @@ input:focus {
 }
 
 img {
-  /* Запрещает размытие при масштабировании */
+ 
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
-  
-  /* Для плавных градиентов и фото */
-  image-rendering: high-quality;
+
 }
 
 
-@media (max-width: 392px) {
+@media (max-width: 39px) {
   img {
     max-width: 100%;
   }

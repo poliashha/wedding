@@ -112,7 +112,7 @@ body {
 }
 
 .love-is {
-  display: block;
+  gap: 10px;
   
 }
 
@@ -296,12 +296,6 @@ input:focus {
 
 .form-send {
   text-align: center;
-}
-
-.love-is-img{
-  
-  margin: auto;
-  padding-bottom: 10px;
 }
 
 img{

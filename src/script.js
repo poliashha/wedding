@@ -70,3 +70,18 @@ form.addEventListener("submit", (event) => {
   }
 });
 
+const nameInput = document.getElementById("name");
+const errorElement = document.getElementById("error-text");
+
+nameInput.addEventListener("invalid", function (event) {
+  event.preventDefault();
+  if (this.validity.valueMissing) {
+    errorElement.classList.add("show");
+  }
+});
+
+nameInput.addEventListener("input", function () {
+  if (this.value.trim() !== "") {
+    errorElement.classList.remove("show");
+  }
+});

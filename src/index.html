@@ -99,7 +99,7 @@
       <article class="card dark form">
         <h2 class="bright-text">Анкета гостя</h2>
         <form action="" class="form-box" onsubmit="sendQuestionnaire(event)">
-          <label for="name" class="visually-hidden">Имя Фамилия</label>
+          <label class="input_box">
           <input
             class="input"
             name="name"
@@ -107,6 +107,8 @@
             type="text"
             placeholder="Имя Фамилия" required
           />
+          <span class="error-text" id="error-text">Пожалуйста, заполните поле</span>
+        </label>
           <fieldset class="radio">
             <h2 class="title wishes-text radio-text">
               Сможете ли вы присутствовать?

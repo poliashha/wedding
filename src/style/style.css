@@ -199,7 +199,10 @@ input:focus {
   display: flex;
   flex-direction: column;
   gap: 13px;
+  height: auto;
+  transition: height 0.3s ease;
 }
+
 .radio {
   display: flex;
   flex-direction: column;
@@ -298,8 +301,22 @@ input:focus {
   text-align: center;
 }
 
-img{
-  image-rendering: -webkit-optimize-contrast;
+.error-text{
+  display: none;
+}
+
+.error-text.show{
+  display: block;
+  animation: show 0.3s ease;
+}
+
+@keyframes show{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 
 .radio-error {

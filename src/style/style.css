@@ -293,14 +293,16 @@ input:focus {
   color: var(--hot-pink-color);
 }
 
-img {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-}
-
 .form-send {
   text-align: center;
+}
+
+.love-is-img{
+  background-image: url("../images/loveis.svg");
+  background-size: cover;
+  background-position: center;
+  width: 229px;
+  height: 229px;
 }
 
 .radio-error {

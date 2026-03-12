@@ -305,6 +305,10 @@ input:focus {
   height: 229px;
 }
 
+img{
+  image-rendering: -webkit-optimize-contrast;
+}
+
 .radio-error {
   background: #fff2f2;
   border-left: 4px solid #ff4444;

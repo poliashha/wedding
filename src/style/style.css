@@ -294,9 +294,9 @@ input:focus {
 }
 
 img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
 }
 
 .form-send {

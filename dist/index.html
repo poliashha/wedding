@@ -103,7 +103,7 @@
       </article>
       <article class="card dark form">
         <h2 class="bright-text">Анкета гостя</h2>
-        <form action="" class="form-box" onsubmit="sendQuestionnaire(event)">
+        <form  class="form-box" onsubmit="sendQuestionnaire(event)" >
           <label class="input_box">
           <input
             class="input"
@@ -114,7 +114,7 @@
           />
           <span class="error-text" id="error-text">Пожалуйста, заполните поле</span>
         </label>
-          <fieldset class="radio">
+          <fieldset class="radio" >
             <h2 class="title wishes-text radio-text">
               Сможете ли вы присутствовать?
             </h2>
@@ -124,18 +124,18 @@
               <span>Да</span>
             </label>
             <label class="custom-radio">
-              <input type="radio" name="presence" value="нет" id="presenceNo"/>
+              <input type="radio" name="presence" value="нет" id="presenceNo" />
               <span class="radio-circle"></span>
               <span>Нет</span>
             </label>
             <label class="custom-radio">
-              <input type="radio" name="presence" value="ответят позже" id="presenceDN"/>
+              <input type="radio" name="presence" value="ответят позже" id="presenceDN" />
               <span class="radio-circle"></span>
               <span>Отвечу позже, до ...</span>
             </label>
             <div class="radio-error" id="presenceError">
           
-          Пожалуйста, выберите, сможете ли вы присутствовать
+          Пожалуйста, выберите, один из вариантов
         </div>
       </fieldset>
           </fieldset>
@@ -145,7 +145,7 @@
               Есть ли у вас аллергия?
             </h2>
             <label class="custom-radio">
-              <input type="radio" name="allergy" value="нет" id="allergyNo" required/>
+              <input type="radio" name="allergy" value="нет" id="allergyNo" />
               <span class="radio-circle"></span>
               <span>Нет</span>
             </label>
@@ -169,16 +169,17 @@
             />
           </div>
 <fieldset class="radio">
-  <h2 class="title wishes-text radio-text">
+  <h2 class="title wishes-text radio-text varints-text">
              Что предпочитаете из напитков?
             </h2>
+            <p class="varints">Можно выбрать несколько вариантов</p>
           <label class="checkbox">
           <input
             name="drinks"
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Белое вино"/>
+            value="белое вино"/>
             <span class="dicorete-checkbox"></span>
             <span>Белое вино</span>
           </label>
@@ -188,7 +189,7 @@
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Красное вино"/>
+            value="красное вино"/>
             <span class="dicorete-checkbox"></span>
             <span>Красное вино</span>
           </label>
@@ -198,7 +199,7 @@
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Шампанское"/>
+            value="шампанское"/>
             <span class="dicorete-checkbox"></span>
             <span>Шампанское</span>
           </label>
@@ -208,7 +209,7 @@
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Коньяк"/>
+            value="коньяк"/>
             <span class="dicorete-checkbox"></span>
             <span>Коньяк</span>
           </label>
@@ -218,7 +219,7 @@
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Виски"/>
+            value="виски"/>
             <span class="dicorete-checkbox"></span>
             <span>Виски</span>
           </label>
@@ -228,7 +229,7 @@
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Водка"/>
+            value="водка"/>
             <span class="dicorete-checkbox"></span>
             <span>Водка</span>
           </label>
@@ -238,7 +239,7 @@
             id="whitewine"
             type="checkbox"
             class="checkbox__input"
-            value="Безалкогольные напитки"/>
+            value="безалкогольные напитки"/>
             <span class="dicorete-checkbox"></span>
             <span>Безалкогольные напитки</span>
           </label>
@@ -260,6 +261,7 @@
        С любовью,  Мария и Даниил!</p>
       </article>
     </footer>
+  
     <script src="script.js"></script>
   </body>
 </html>

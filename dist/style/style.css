@@ -113,7 +113,6 @@ body {
 
 .love-is {
   gap: 10px;
-  
 }
 
 .form {
@@ -301,49 +300,48 @@ input:focus {
   text-align: center;
 }
 
-.error-text{
+.error-text {
   display: none;
 }
 
-.error-text.show{
+.error-text.show {
   display: block;
   animation: show 0.3s ease;
 }
 
-@keyframes show{
-  from{
+.radio-error{
+  display: none;
+}
+
+.radio-error.show {
+  display: block;
+  animation: show 0.3s ease;
+}
+
+@keyframes show {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
 }
 
-.radio-error {
-  background: #fff2f2;
-  border-left: 4px solid #ff4444;
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-top: 16px;
-  font-size: 14px;
-  color: #ff4444;
-  display: none;
-  align-items: center;
-  gap: 8px;
-  animation: slideDown 0.3s ease;
-  font-weight: 500;
+.varints-text {
+  padding-bottom: 5px;
 }
 
-.custom-radio{
+.varints {
+  padding-bottom: 13px;
+  font-size: 15px;
+}
+
+.custom-radio {
   font-size: 20px;
 }
 
-.checkbox{
+.checkbox {
   font-size: 20px;
-}
-
-.radio-error.show {
-  display: flex;
 }
 
 .error-icon {

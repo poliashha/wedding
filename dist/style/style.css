@@ -46,7 +46,7 @@ body {
 .distinguished {
   display: flex;
   flex-direction: column;
-  gap: 57px;
+  gap: 36px;
   justify-content: center;
   align-items: center;
   padding-bottom: 36px;

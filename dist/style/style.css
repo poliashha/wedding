@@ -318,6 +318,15 @@ input:focus {
   animation: show 0.3s ease;
 }
 
+.allergy-error{
+  display: none;
+}
+
+.allergy-error.show{
+  display: block;
+  animation: show 0.3s ease;
+}
+
 @keyframes show {
   from {
     opacity: 0;

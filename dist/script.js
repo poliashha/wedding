@@ -101,19 +101,20 @@ nameInput.addEventListener("input", function () {
 
 document.querySelectorAll('input[name="presence"]').forEach((radio) => {
   radio.addEventListener("invalid", function (e) {
-    // Отменяем стандартное всплывающее сообщение для этого поля
+    
     e.preventDefault();
 
-    // Показываем кастомную ошибку
+    
     document.getElementById("presenceError").classList.add("show");
 
     return false;
   });
 });
 
-// Скрываем ошибку при изменении выбора
+
 document.querySelectorAll('input[name="presence"]').forEach((radio) => {
   radio.addEventListener("change", function () {
     document.getElementById("presenceError").classList.remove("show");
   });
 });
+

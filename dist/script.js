@@ -200,5 +200,5 @@ if (name) {
   document.getElementById("greeting").textContent = `Уважаемые ${name},`;
 }
 else{
-  document.getElementById("greeting").style.display = "none";
+  // document.getElementById("greeting").style.display = "none";
 }

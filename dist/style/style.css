@@ -359,7 +359,7 @@ input:focus {
 
 .timer{
   display: flex;
-  gap: 15px;
+  gap: 5px;
   justify-content: center;
 }
 
@@ -368,13 +368,18 @@ input:focus {
   text-align: center;
   font-family: var(--time-font);
   position: relative;
+  width: 43px;
+}
+
+.colon{
+  width: auto;
 }
 
 .days::after{
   content: 'дней';
   position: absolute;
   top: 33px;
-  right: 8px;
+  right: 7px;
   font-size: 15px;
   font-family: var(--main-font);
   font-weight: 400;
@@ -383,8 +388,8 @@ input:focus {
 .hours::after{
   content: 'часов';
   position: absolute;
-  top: 33px;
-  right: -2px;
+   top: 33px;
+  right: 5px;
   font-size: 15px;
   font-family: var(--main-font);
   font-weight: 400;
@@ -393,8 +398,8 @@ input:focus {
 .minutes::after{
   content: 'минут';
   position: absolute;
-  top: 33px;
-  right: -4px;
+   top: 33px;
+  right: 3px;
   font-size: 15px;
   font-family: var(--main-font);
   font-weight: 400;
@@ -403,8 +408,8 @@ input:focus {
 .seconds::after{
   content: 'секунд';
   position: absolute;
-  top: 33px;
-  right: -5px;
+   top: 33px;
+  right: 2px;
   font-size: 15px;
   font-family: var(--main-font);
   font-weight: 400;

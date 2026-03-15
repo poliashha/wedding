@@ -198,8 +198,8 @@ const name = urlParams.get("name");
 
 if (name) {
   document.getElementById("greeting").textContent = `Уважаемые ${name},`;
-  document.getElementById("greeting").style.fontSize = "25px";
-  document.getElementById("greeting_wedding").style.fontSize = "25px";
+  document.getElementById("greeting").style.fontSize = "30px";
+  document.getElementById("greeting_wedding").style.fontSize = "30px";
 }
 else{
   document.getElementById("greeting").style.display = "none";

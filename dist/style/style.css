@@ -417,6 +417,9 @@ input:focus {
   font-weight: 400;
 }
 
+.name-block{
+  padding: 5px;
+}
 
 
 @keyframes slideDown {

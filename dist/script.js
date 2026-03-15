@@ -198,7 +198,8 @@ const name = urlParams.get("name");
 
 if (name) {
   document.getElementById("greeting").textContent = `Уважаемые ${name},`;
+  document.getElementById("greeting_block").fontSize = "30px";
 }
 else{
-  // document.getElementById("greeting").style.display = "none";
+  document.getElementById("greeting").style.display = "none";
 }

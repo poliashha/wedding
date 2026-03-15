@@ -197,8 +197,8 @@ const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get("name");
 
 if (name) {
-  document.getElementById("greeting").textContent = `Уважаемые ${name}!`;
+  document.getElementById("greeting").textContent = `Уважаемая ${name}!,`;
 }
 else{
-  document.getElementById("greeting").style.display = "none";
+  // document.getElementById("greeting").style.display = "none";
 }

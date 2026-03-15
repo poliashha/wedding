@@ -422,6 +422,15 @@ input:focus {
   font-size: 30px;
 }
 
+.calendar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 36px;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;

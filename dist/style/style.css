@@ -112,7 +112,7 @@ body {
 }
 
 .love-is {
-  gap: 10px;
+  gap: 20px;
 }
 
 .form {
@@ -355,6 +355,59 @@ input:focus {
 
 .error-icon {
   font-size: 16px;
+}
+
+.timer{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.timer-text{
+  font-size: 30px;
+  text-align: center;
+  font-family: var(--time-font);
+  position: relative;
+}
+
+.days::after{
+  content: 'дней';
+  position: absolute;
+  top: 33px;
+  right: 8px;
+  font-size: 15px;
+  font-family: var(--main-font);
+  font-weight: 400;
+}
+
+.hours::after{
+  content: 'часов';
+  position: absolute;
+  top: 33px;
+  right: -2px;
+  font-size: 15px;
+  font-family: var(--main-font);
+  font-weight: 400;
+}
+
+.minutes::after{
+  content: 'минут';
+  position: absolute;
+  top: 33px;
+  right: -4px;
+  font-size: 15px;
+  font-family: var(--main-font);
+  font-weight: 400;
+}
+
+.seconds::after{
+  content: 'минут';
+  position: absolute;
+  top: 33px;
+  right: -2px;
+  font-size: 15px;
+  font-family: var(--main-font);
+  font-weight: 400;
 }
 
 @keyframes slideDown {

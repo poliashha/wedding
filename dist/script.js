@@ -189,7 +189,6 @@ function startCountdown(targetDate) {
   setInterval(updateTimer, 1000);
 }
 
-// Использование: 31 декабря 2024 года
 const newYear = new Date(2026, 7, 14, 15, 0, 0).getTime();
 startCountdown(newYear);
 

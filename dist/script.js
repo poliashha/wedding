@@ -168,7 +168,7 @@ function startCountdown(targetDate) {
 
     if (distance < 0) {
       document.getElementById("timer").innerHTML = "Мы стали семьей!";
-      document.getElementsByClassName("datetime").display
+      document.getElementsByClassName("datetime").display;
       return;
     }
 
@@ -192,3 +192,13 @@ function startCountdown(targetDate) {
 // Использование: 31 декабря 2024 года
 const newYear = new Date(2026, 7, 14, 15, 0, 0).getTime();
 startCountdown(newYear);
+
+const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get("name");
+
+if (name) {
+  document.getElementById("greeting").textContent = `Уважаемые ${name}!`;
+}
+else{
+  document.getElementById("greeting").style.display = "none";
+}

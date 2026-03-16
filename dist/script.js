@@ -193,18 +193,26 @@ const newYear = new Date(2026, 7, 14, 15, 0, 0).getTime();
 startCountdown(newYear);
 
 const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get("name");
+const nameParam = urlParams.get("name");
 
-if (name) {
+if (nameParam) {
+  const decodedName = decodeURIComponent(nameParam.replace(/\+/g, " "));
+
   document.getElementById("greeting").style.fontSize = "30px";
   document.getElementById("greeting_wedding").style.fontSize = "30px";
-  if (name.include("и")){
-  document.getElementById("greeting").textContent = `Уважаемые ${name},`;
+
+  
+  if (
+    decodedName.includes("и") ||
+    decodedName.includes(",") ||
+    decodedName.includes("&")
+  ) {
+    document.getElementById("greeting").textContent =
+      `Уважаемые ${decodedName},`;
+  } else {
+    document.getElementById("greeting").textContent =
+      `Уважаемый ${decodedName},`;
   }
-  else{
-    document.getElementById("greeting").textContent = `Уважаемый ${name},`;
-  }
-}
-else{
+} else {
   document.getElementById("greeting").style.display = "none";
 }

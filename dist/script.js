@@ -217,7 +217,7 @@ const button = document.querySelector('.button');
 
 // При касании
 button.addEventListener('touchstart', function(e) {
-  e.preventDefault(); // предотвращаем стандартное поведение
+  // предотвращаем стандартное поведение
   
   this.classList.add('touch-pressed');
 });

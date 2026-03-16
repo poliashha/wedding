@@ -167,8 +167,8 @@ function startCountdown(targetDate) {
     const distance = targetDate - now;
 
     if (distance < 0) {
-      document.getElementById("timer").innerHTML = "Мы стали семьей!";
-      document.getElementsByClassName("datetime").display;
+      document.getElementById("timer").style.display = "none";
+      document.getElementById("datetime").textContent = "Мы стали семьей!";
       return;
     }
 
@@ -214,17 +214,10 @@ if (nameParam) {
 }
 
 const button = document.querySelector('.button');
-
-// При касании
 button.addEventListener('touchstart', function(e) {
-  // предотвращаем стандартное поведение
-  
   this.classList.add('touch-pressed');
 });
 
-// При отпускании
-button.addEventListener('touchend', function(e) {
-
-  
+button.addEventListener('touchend', function(e) {  
   this.classList.remove('touch-pressed');
 });

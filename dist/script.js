@@ -212,3 +212,19 @@ if (nameParam) {
 } else {
   document.getElementById("greeting").style.display = "none";
 }
+
+const button = document.querySelector('.button');
+
+// При касании
+button.addEventListener('touchstart', function(e) {
+  e.preventDefault(); // предотвращаем стандартное поведение
+  
+  this.classList.add('touch-pressed');
+});
+
+// При отпускании
+button.addEventListener('touchend', function(e) {
+  e.preventDefault();
+  
+  this.classList.remove('touch-pressed');
+});

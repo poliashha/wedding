@@ -224,7 +224,7 @@ button.addEventListener('touchstart', function(e) {
 
 // При отпускании
 button.addEventListener('touchend', function(e) {
-  e.preventDefault();
+
   
   this.classList.remove('touch-pressed');
 });

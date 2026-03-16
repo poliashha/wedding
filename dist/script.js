@@ -113,53 +113,53 @@ document.querySelectorAll('input[name="presence"]').forEach((radio) => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  const allergyError = document.getElementById("allergyError");
-  const presenceYes = document.getElementById("presenceYes");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.querySelector("form");
+//   const allergyError = document.getElementById("allergyError");
+//   const presenceYes = document.getElementById("presenceYes");
 
-  document.querySelectorAll('input[name="allergy"]').forEach((radio) => {
-    radio.addEventListener("invalid", function (e) {
-      e.preventDefault();
-      // Показываем ошибку только если выбрано presence "Да"
-      if (presenceYes && presenceYes.checked) {
-        allergyError.classList.add("show");
-      }
-      return false;
-    });
+//   document.querySelectorAll('input[name="allergy"]').forEach((radio) => {
+//     radio.addEventListener("invalid", function (e) {
+//       e.preventDefault();
+//       // Показываем ошибку только если выбрано presence "Да"
+//       if (presenceYes && presenceYes.checked) {
+//         allergyError.classList.add("show");
+//       }
+//       return false;
+//     });
 
-    radio.addEventListener("change", function () {
-      allergyError.classList.remove("show");
-    });
-  });
+//     radio.addEventListener("change", function () {
+//       allergyError.classList.remove("show");
+//     });
+//   });
 
-  // 3. ОБРАБОТЧИК ОТПРАВКИ ФОРМЫ (финальная проверка)
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      let hasError = false;
+//   // 3. ОБРАБОТЧИК ОТПРАВКИ ФОРМЫ (финальная проверка)
+//   if (form) {
+//     form.addEventListener("submit", function (e) {
+//       let hasError = false;
 
-      // Проверяем allergy (только если presence = "Да")
-      if (presenceYes && presenceYes.checked) {
-        const allergySelected = document.querySelector(
-          'input[name="allergy"]:checked',
-        );
-        if (!allergySelected) {
-          allergyError.classList.add("show");
-          e.preventDefault();
-        } else {
-          allergyError.classList.remove("show");
-        }
-      }
-    });
-  }
+//       // Проверяем allergy (только если presence = "Да")
+//       if (presenceYes && presenceYes.checked) {
+//         const allergySelected = document.querySelector(
+//           'input[name="allergy"]:checked',
+//         );
+//         if (!allergySelected) {
+//           allergyError.classList.add("show");
+//           e.preventDefault();
+//         } else {
+//           allergyError.classList.remove("show");
+//         }
+//       }
+//     });
+//   }
 
-  // 4. СКРЫВАЕМ ОШИБКУ ALLERGY ПРИ ИЗМЕНЕНИИ PRESENCE
-  if (presenceYes) {
-    presenceYes.addEventListener("change", function () {
-      allergyError.classList.remove("show");
-    });
-  }
-});
+//   // 4. СКРЫВАЕМ ОШИБКУ ALLERGY ПРИ ИЗМЕНЕНИИ PRESENCE
+//   if (presenceYes) {
+//     presenceYes.addEventListener("change", function () {
+//       allergyError.classList.remove("show");
+//     });
+//   }
+// });
 
 function startCountdown(targetDate) {
   function updateTimer() {
@@ -196,9 +196,14 @@ const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get("name");
 
 if (name) {
-  document.getElementById("greeting").textContent = `Уважаемые ${name},`;
   document.getElementById("greeting").style.fontSize = "30px";
   document.getElementById("greeting_wedding").style.fontSize = "30px";
+  if (name.include("и")){
+  document.getElementById("greeting").textContent = `Уважаемые ${name},`;
+  }
+  else{
+    document.getElementById("greeting").textContent = `Уважаемый ${name},`;
+  }
 }
 else{
   document.getElementById("greeting").style.display = "none";

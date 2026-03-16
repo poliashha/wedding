@@ -284,9 +284,16 @@ input:focus {
   transition: all 0.3s ease;
 }
 
-.button:hover {
+.button:active {
   background-color: var(--background-color-light);
   color: var(--hot-pink-color);
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background-color: var(--background-color-light);
+  color: var(--hot-pink-color);
+  }
 }
 
 .footer-text {

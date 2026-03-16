@@ -202,11 +202,7 @@ if (nameParam) {
   document.getElementById("greeting_wedding").style.fontSize = "30px";
 
   
-  if (
-    decodedName.includes("и") ||
-    decodedName.includes(",") ||
-    decodedName.includes("&")
-  ) {
+  if (decodedName.includes(" ")) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;
   } else {

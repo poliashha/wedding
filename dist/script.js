@@ -201,7 +201,6 @@ if (nameParam) {
   document.getElementById("greeting").style.fontSize = "30px";
   document.getElementById("greeting_wedding").style.fontSize = "30px";
 
-  
   if (decodedName.includes(" ")) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;
@@ -213,11 +212,39 @@ if (nameParam) {
   document.getElementById("greeting").style.display = "none";
 }
 
-const button = document.querySelector('.button');
-button.addEventListener('touchstart', function(e) {
-  this.classList.add('touch-pressed');
+const button = document.querySelector(".button");
+button.addEventListener("touchstart", function (e) {
+  this.classList.add("touch-pressed");
 });
 
-button.addEventListener('touchend', function(e) {  
-  this.classList.remove('touch-pressed');
+button.addEventListener("touchend", function (e) {
+  this.classList.remove("touch-pressed");
 });
+
+function initScrollAnimation() {
+  const containers = document.querySelectorAll(".conteiner");
+
+  // Создаём наблюдатель
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Если элемент появился в зоне видимости
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+
+          // Останавливаем наблюдение для этого элемента
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+   
+  );
+
+  // Начинаем следить за каждым контейнером
+  containers.forEach((container) => {
+    observer.observe(container);
+  });
+}
+
+// Запускаем после загрузки страницы
+document.addEventListener("DOMContentLoaded", initScrollAnimation);

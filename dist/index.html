@@ -64,7 +64,7 @@
         </div>
            <object 
   type="image/svg+xml" 
-  data="./images/newdresskod.svg" 
+  data="./images/heartfull.svg" 
   width="322" 
   height="299">
 </object>
@@ -87,17 +87,17 @@
       <article class="card light">
         <h2 class="bright-text">Тайминг дня</h2>
         <div class="big-container">
-          <div class="conteiner">
+          <div class="conteiner first">
             <div class="liner"></div>
             <p class="time-text">15:00</p>
             <p class="time-title">Регистрация брака</p>
           </div>
-          <div class="conteiner">
+          <div class="conteiner second">
             <div class="liner"></div>
             <p class="time-text">16:00</p>
             <p class="time-title">Сбор гостей</p>
           </div>
-          <div class="conteiner">
+          <div class="conteiner third">
             <div class="liner"></div>
             <p class="time-text">16:30</p>
             <p class="time-title">Банкет</p>
@@ -127,7 +127,10 @@
         <img src="./images/heartpolovina.svg" alt="" />
       </article>
       <article class="card dark form">
+        <div>
         <h2 class="bright-text">Анкета гостя</h2>
+        <p>Пожалйста, заполните форму до <span class="timer-text timer-text_small">14.07.2026</p>
+        </div>
         <form  class="form-box" onsubmit="sendQuestionnaire(event)" >
           <label class="input_box">
           <input
@@ -156,7 +159,7 @@
             <label class="custom-radio">
               <input type="radio" name="presence" value="ответят позже" id="presenceDN" />
               <span class="radio-circle"></span>
-              <span>Отвечу позже, до ...</span>
+              <span>Отвечу позже, до <span class="timer-text timer-text_small">14.07.2026</span></span>
             </label>
             <div class="radio-error" id="presenceError">
           

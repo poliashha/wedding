@@ -184,7 +184,11 @@ body {
   transition: border-color 0.2s ease;
 }
 
-input:focus {
+.text-width{
+  max-width: 350px;
+}
+
+.input:focus {
   border: 1px solid var(--background-color-light);
   outline-offset: 0;
 }

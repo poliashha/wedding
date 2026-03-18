@@ -65,6 +65,80 @@
 //     formBth.textContent = "Подтверидить присутсвие";
 //   }
 // }
+
+const form = document.getElementById("form");
+const submitBtn = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = form.querySelector('[name="name"]')?.value || "";
+  const presence = form.querySelector('[name="presence"]:checked')?.value || "";
+  const allergy = form.querySelector('[name="allergy"]:checked')?.value || "";
+
+  // Получаем список аллергий (чекбоксы)
+  const allergyCheckboxes = form.querySelectorAll(
+    'input[name="allergy_items"]:checked',
+  );
+  const listallergy = Array.from(allergyCheckboxes)
+    .map((cb) => cb.value)
+    .join(", ");
+
+  // Получаем выбранные напитки
+  const drinksCheckboxes = form.querySelectorAll(
+    'input[name="drinks"]:checked',
+  );
+  const drinks = Array.from(drinksCheckboxes).map((cb) => cb.value);
+
+  // Формируем текст сообщения
+  const messageText = `Гость ${name},
+будет присутствовать: ${presence},
+есть аллергия: ${allergy}${
+    allergy === "да"
+      ? `,
+на что аллергия: ${listallergy}`
+      : ""
+  },
+напитки: ${drinks.join(", ")}`;
+  const formData = new FormData(form);
+  formData.append("access_key", "6fa52a1b-3311-4436-9a98-5dcf7f6db9c3");
+  formData.append("subject", "Новая анкета со свадьбы");
+  formData.append("message", messageText);
+
+  // Можно добавить и отдельные поля (опционально)
+  formData.append("name", name);
+  formData.append("presence", presence);
+  formData.append("allergy", allergy);
+  formData.append("allergy_list", listallergy);
+  formData.append("drinks", drinks.join(", "));
+
+  const originalText = submitBtn.textContent;
+
+  submitBtn.textContent = "Отправляется...";
+  submitBtn.disabled = true;
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Success! Your message has been sent.");
+      form.reset();
+    } else {
+      alert("Error: " + data.message);
+    }
+  } catch (error) {
+    alert("Something went wrong. Please try again.");
+  } finally {
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const yesRadio = document.getElementById("allergyYes");
   const noRadio = document.getElementById("allergyNo");
@@ -225,20 +299,17 @@ function initScrollAnimation() {
   const containers = document.querySelectorAll(".conteiner");
 
   // Создаём наблюдатель
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        // Если элемент появился в зоне видимости
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      // Если элемент появился в зоне видимости
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
 
-          // Останавливаем наблюдение для этого элемента
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-   
-  );
+        // Останавливаем наблюдение для этого элемента
+        observer.unobserve(entry.target);
+      }
+    });
+  });
 
   // Начинаем следить за каждым контейнером
   containers.forEach((container) => {

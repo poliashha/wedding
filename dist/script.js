@@ -3,68 +3,68 @@
 // const TELEGRAM_CHAT_ID = "224996524";
 // const API = `https://api.vk.com/method/messages.send`;
 
-// const TELEGRAM_BOT_TOKEN = "8798342879:AAFawWVHQ4lRPqVqjYQ6X5iclJd8u-B_d_o";
-// const TELEGRAM_CHAT_ID = "@WeddingDorogovi";
-// const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+// // const TELEGRAM_BOT_TOKEN = "8798342879:AAFawWVHQ4lRPqVqjYQ6X5iclJd8u-B_d_o";
+// // const TELEGRAM_CHAT_ID = "@WeddingDorogovi";
+// // const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
-async function sendQuestionnaire(event) {
-  event.preventDefault();
-  const form = event.target;
-  const formBth = document.querySelector(".button");
-  const formSendResult = document.querySelector(".form-send");
-  formSendResult.textContent = "";
+// async function sendQuestionnaire(event) {
+//   event.preventDefault();
+//   const form = event.target;
+//   const formBth = document.querySelector(".button");
+//   const formSendResult = document.querySelector(".form-send");
+//   formSendResult.textContent = "";
 
-  const formData = new FormData(form);
+//   const formData = new FormData(form);
 
-  const name = formData.get("name");
-  const presence = formData.get("presence");
-  const allergy = formData.get("allergy");
-  const listallergy = formData.get("listallergy");
-  const drinks = formData.getAll("drinks");
+//   const name = formData.get("name");
+//   const presence = formData.get("presence");
+//   const allergy = formData.get("allergy");
+//   const listallergy = formData.get("listallergy");
+//   const drinks = formData.getAll("drinks");
 
-  const text = `Гость ${name},\nбудет присутствовать: ${presence},\nесть аллергия: ${allergy}${allergy === "да" ? `,\nна что аллергия: ${listallergy}` : ""},\nнапитки: ${drinks.join(", ")}`;
+//   const text = `Гость ${name},\nбудет присутствовать: ${presence},\nесть аллергия: ${allergy}${allergy === "да" ? `,\nна что аллергия: ${listallergy}` : ""},\nнапитки: ${drinks.join(", ")}`;
 
-  try {
-    formBth.textContent = "Отправка...";
-    const response = await fetch(API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        user_id: TELEGRAM_CHAT_ID,
-        random_id: Date.now(),
-        message: text,
-        access_token: TELEGRAM_BOT_TOKEN,
-        v: "5.131",
-      }),
-    });
+//   try {
+//     formBth.textContent = "Отправка...";
+//     const response = await fetch(API, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/x-www-form-urlencoded",
+//       },
+//       body: new URLSearchParams({
+//         user_id: TELEGRAM_CHAT_ID,
+//         random_id: Date.now(),
+//         message: text,
+//         access_token: TELEGRAM_BOT_TOKEN,
+//         v: "5.131",
+//       }),
+//     });
 
-    // const response = await fetch(API, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     chat_id: TELEGRAM_CHAT_ID,
-    //     text,
-    //   }),
-    // });
+//     // const response = await fetch(API, {
+//     //   method: "POST",
+//     //   headers: {
+//     //     "Content-Type": "application/json",
+//     //   },
+//     //   body: JSON.stringify({
+//     //     chat_id: TELEGRAM_CHAT_ID,
+//     //     text,
+//     //   }),
+//     // });
 
-    if (response.ok) {
-      formSendResult.textContent = "Спасибо! Анкета отправлена.";
+//     if (response.ok) {
+//       formSendResult.textContent = "Спасибо! Анкета отправлена.";
 
-      form.reset();
-    } else {
-      throw new Error(response.statusText);
-    }
-  } catch (error) {
-    console.error(error);
-    formSendResult.textContent = "Спасибо! Анкета отправлена.";
-  } finally {
-    formBth.textContent = "Подтверидить присутсвие";
-  }
-}
+//       form.reset();
+//     } else {
+//       throw new Error(response.statusText);
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     formSendResult.textContent = "Спасибо! Анкета отправлена.";
+//   } finally {
+//     formBth.textContent = "Подтверидить присутсвие";
+//   }
+// }
 document.addEventListener("DOMContentLoaded", function () {
   const yesRadio = document.getElementById("allergyYes");
   const noRadio = document.getElementById("allergyNo");

@@ -106,11 +106,7 @@ form.addEventListener("submit", async (e) => {
   formData.append("message", messageText);
 
   // Можно добавить и отдельные поля (опционально)
-  formData.append("name", name);
-  formData.append("presence", presence);
-  formData.append("allergy", allergy);
-  formData.append("allergy_list", listallergy);
-  formData.append("drinks", drinks.join(", "));
+ 
 
   const originalText = submitBtn.textContent;
 

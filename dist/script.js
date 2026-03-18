@@ -66,74 +66,85 @@
 //   }
 // }
 
-const form = document.getElementById("form");
-const submitBtn = form.querySelector('button[type="submit"]');
+async function sendQuestionnaire(event) {
+  event.preventDefault();
+  const form = event.target;
+  const submitBtn = document.querySelector(".button");
+  const formSendResult = document.querySelector(".form-send");
+  formSendResult.textContent = "";
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+   const originalText = submitBtn.textContent;
 
-  const name = form.querySelector('[name="name"]')?.value || "";
-  const presence = form.querySelector('[name="presence"]:checked')?.value || "";
-  const allergy = form.querySelector('[name="allergy"]:checked')?.value || "";
+   // Получаем данные из формы
+   const name = form.querySelector('[name="name"]')?.value || "";
+   const presence =
+     form.querySelector('[name="presence"]:checked')?.value || "";
+   const allergy = form.querySelector('[name="allergy"]:checked')?.value || "";
 
-  // Получаем список аллергий (чекбоксы)
-  const allergyCheckboxes = form.querySelectorAll(
-    'input[name="allergy_items"]:checked',
-  );
-  const listallergy = Array.from(allergyCheckboxes)
-    .map((cb) => cb.value)
-    .join(", ");
+   // Собираем аллергии (чекбоксы)
+   const allergyItems = form.querySelectorAll(
+     'input[name="allergy_items"]:checked',
+   );
+   const listallergy = Array.from(allergyItems)
+     .map((cb) => cb.value)
+     .join(", ");
 
-  // Получаем выбранные напитки
-  const drinksCheckboxes = form.querySelectorAll(
-    'input[name="drinks"]:checked',
-  );
-  const drinks = Array.from(drinksCheckboxes).map((cb) => cb.value);
+   // Собираем напитки
+   const drinksItems = form.querySelectorAll('input[name="drinks"]:checked');
+   const drinks = Array.from(drinksItems).map((cb) => cb.value);
 
-  // Формируем текст сообщения
-  const messageText = `Гость ${name},
+   // Формируем текст сообщения
+   const text = `Гость ${name},
 будет присутствовать: ${presence},
 есть аллергия: ${allergy}${
-    allergy === "да"
-      ? `,
+     allergy === "да"
+       ? `,
 на что аллергия: ${listallergy}`
-      : ""
-  },
+       : ""
+   },
 напитки: ${drinks.join(", ")}`;
-  const formData = new FormData(form);
-  formData.append("access_key", "6fa52a1b-3311-4436-9a98-5dcf7f6db9c3");
-  formData.append("subject", "Новая анкета со свадьбы");
-  formData.append("message", messageText);
 
-  // Можно добавить и отдельные поля (опционально)
- 
+   // Создаём FormData для отправки
+   const formData = new FormData();
+   formData.append("access_key", "6fa52a1b-3311-4436-9a98-5dcf7f6db9c3");
+   formData.append("subject", "Новая анкета со свадьбы");
+   formData.append("message", text); // 👈 отправляем отформатированный текст
 
-  const originalText = submitBtn.textContent;
+   // Опционально: можно добавить отдельные поля
+   formData.append("name", name);
+   formData.append("presence", presence);
+   formData.append("allergy", allergy);
+   formData.append("allergy_list", listallergy);
+   formData.append("drinks", drinks.join(", "));
 
-  submitBtn.textContent = "Отправляется...";
-  submitBtn.disabled = true;
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+   submitBtn.textContent = "Отправляется...";
+   submitBtn.disabled = true;
 
-    const data = await response.json();
+   try {
+     const response = await fetch("https://api.web3forms.com/submit", {
+       method: "POST",
+       body: formData,
+     });
 
-    if (response.ok) {
-      alert("Success! Your message has been sent.");
-      form.reset();
-    } else {
-      alert("Error: " + data.message);
-    }
-  } catch (error) {
-    alert("Something went wrong. Please try again.");
-  } finally {
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-  }
-});
+     const data = await response.json();
+
+     if (response.ok) {
+       formSendResult.textContent = "Анкета отправлена!";
+       formSendResult.style.color = "green";
+       form.reset();
+     } else {
+       throw new Error(data.message);
+     }
+   } catch (error) {
+     console.error(error);
+     formSendResult.textContent = "Ошибка отправки";
+     formSendResult.style.color = "red";
+   } finally {
+     submitBtn.textContent = originalText; // 
+     submitBtn.disabled = false;
+   }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const yesRadio = document.getElementById("allergyYes");

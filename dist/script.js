@@ -111,11 +111,7 @@ async function sendQuestionnaire(event) {
    formData.append("message", text); // 👈 отправляем отформатированный текст
 
    // Опционально: можно добавить отдельные поля
-   formData.append("name", name);
-   formData.append("presence", presence);
-   formData.append("allergy", allergy);
-   formData.append("allergy_list", listallergy);
-   formData.append("drinks", drinks.join(", "));
+   
 
 
    submitBtn.textContent = "Отправляется...";

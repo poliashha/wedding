@@ -135,7 +135,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const nameParam = urlParams.get("name");
 const arr = [
   "Анна","Аня",
-  "Бабушка","Бабушка Ира","Бабушка Галя","Бабушка Света",
+  "Бабушка","Бабушка Ира","Бабушка Света",
   "Наташа","Наталия",
   "Тетя Таня",
   "Марина",
@@ -158,7 +158,11 @@ if (nameParam) {
   document.getElementById("greeting").style.fontSize = "30px";
   document.getElementById("greeting_wedding").style.fontSize = "30px";
 
-  if (decodedName.includes(" ") && !decodedName.includes("Бабушка Ира")) {
+  if (
+    decodedName.includes(" ") &&
+    !decodedName.includes("Бабушка Ира") &&
+    !decodedName.includes("Бабушка Галя")
+  ) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;
   } else {

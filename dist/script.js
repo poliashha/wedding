@@ -133,18 +133,23 @@ startCountdown(newYear);
 
 const urlParams = new URLSearchParams(window.location.search);
 const nameParam = urlParams.get("name");
-
+const arr =  ['Анна', 'Аня', 'Бабушка', 'Бабушка Ира', 'Наташа', 'Тетя Таня', 'Марина', 'Шура', 'Саша',
+  'Александра', 'Наталия', 'Катя', 'Екатерина', 'Настя', 'Анастасия', 'Лена', 'Елена', 'Лиана']
 if (nameParam) {
   const decodedName = decodeURIComponent(nameParam.replace(/\+/g, " "));
 
   document.getElementById("greeting").style.fontSize = "30px";
   document.getElementById("greeting_wedding").style.fontSize = "30px";
 
-  if (decodedName.includes(" ")) {
+  if (decodedName.includes(" ") && !decodedName.includes("Бабушка Ира")) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;
   } else {
-    document.getElementById("greeting").textContent =
+    if (decodedName.includes(arr)){
+      document.getElementById("greeting").textContent =
+        `Уважаемая ${decodedName},`;
+    }
+    else document.getElementById("greeting").textContent =
       `Уважаемый ${decodedName},`;
   }
 } else {

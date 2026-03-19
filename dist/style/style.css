@@ -475,6 +475,6 @@ body {
   }
 }
 
- .first.visible { transition-delay: 0.3s; }
-    .second.visible { transition-delay: 0.6s; }
-    .third.visible { transition-delay: 0.9s; }
+ .first.visible { transition-delay: 0.2s; }
+    .second.visible { transition-delay: 0.5s; }
+    .third.visible { transition-delay: 0.8s; }

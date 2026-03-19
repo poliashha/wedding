@@ -145,12 +145,12 @@ if (nameParam) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;
   } else {
-    if (decodedName.includes(arr)){
+    if (arr.includes(decodedName)) {
       document.getElementById("greeting").textContent =
         `Уважаемая ${decodedName},`;
-    }
-    else document.getElementById("greeting").textContent =
-      `Уважаемый ${decodedName},`;
+    } else
+      document.getElementById("greeting").textContent =
+        `Уважаемый ${decodedName},`;
   }
 } else {
   document.getElementById("greeting").style.display = "none";

@@ -19,7 +19,7 @@ async function sendQuestionnaire(event) {
   const listallergy = formData.get("listallergy");
   const drinks = formData.getAll("drinks");
 
-  const text = `Гость ${name},\nбудет присутствовать: ${presence},\nесть аллергия: ${allergy}${allergy === "да" ? `,\nна что аллергия: ${listallergy}` : ""},\nнапитки: ${drinks.join(", ")}`;
+  const text = `Гость: ${name},\nбудет присутствовать: ${presence},\nесть аллергия: ${allergy}${allergy === "да" ? `,\nна что аллергия: ${listallergy}` : ""},\nнапитки: ${drinks.join(", ")}`;
 
   try {
     formBth.textContent = "Отправка...";

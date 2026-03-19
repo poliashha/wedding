@@ -135,7 +135,7 @@ body {
 }
 
 .conteiner.visible {
-      opacity: 1;
+  opacity: 1;
 }
 
 .liner {
@@ -475,6 +475,21 @@ body {
   }
 }
 
- .first.visible { transition-delay: 0.2s; }
-    .second.visible { transition-delay: 0.5s; }
-    .third.visible { transition-delay: 0.8s; }
+.first.visible {
+  transition-delay: 0.2s;
+}
+.second.visible {
+  transition-delay: 0.5s;
+}
+.third.visible {
+  transition-delay: 0.8s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark{
+    background-color: var(--background-color-dark);
+  }
+  .light{
+    background-color: var(--background-color-light);
+  }
+}

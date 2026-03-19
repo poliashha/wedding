@@ -278,6 +278,8 @@ body {
   background-color: transparent;
   width: 14px;
   height: 14px;
+  border-radius: 1px;
+  outline: none;
 }
 
 .checkbox__input:checked::after {

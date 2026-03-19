@@ -3,9 +3,6 @@ const TELEGRAM_BOT_TOKEN =
 const TELEGRAM_CHAT_ID = "224996524";
 const API = `https://api.vk.com/method/messages.send`;
 
-// const TELEGRAM_BOT_TOKEN = "8798342879:AAFawWVHQ4lRPqVqjYQ6X5iclJd8u-B_d_o";
-// const TELEGRAM_CHAT_ID = "@WeddingDorogovi";
-// const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
 async function sendQuestionnaire(event) {
   event.preventDefault();
@@ -39,17 +36,6 @@ async function sendQuestionnaire(event) {
         v: "5.131",
       }),
     });
-
-    // const response = await fetch(API, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     chat_id: TELEGRAM_CHAT_ID,
-    //     text,
-    //   }),
-    // });
 
     if (response.ok) {
       formSendResult.textContent = "Спасибо! Анкета отправлена.";
@@ -113,53 +99,6 @@ document.querySelectorAll('input[name="presence"]').forEach((radio) => {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.querySelector("form");
-//   const allergyError = document.getElementById("allergyError");
-//   const presenceYes = document.getElementById("presenceYes");
-
-//   document.querySelectorAll('input[name="allergy"]').forEach((radio) => {
-//     radio.addEventListener("invalid", function (e) {
-//       e.preventDefault();
-//       // Показываем ошибку только если выбрано presence "Да"
-//       if (presenceYes && presenceYes.checked) {
-//         allergyError.classList.add("show");
-//       }
-//       return false;
-//     });
-
-//     radio.addEventListener("change", function () {
-//       allergyError.classList.remove("show");
-//     });
-//   });
-
-//   // 3. ОБРАБОТЧИК ОТПРАВКИ ФОРМЫ (финальная проверка)
-//   if (form) {
-//     form.addEventListener("submit", function (e) {
-//       let hasError = false;
-
-//       // Проверяем allergy (только если presence = "Да")
-//       if (presenceYes && presenceYes.checked) {
-//         const allergySelected = document.querySelector(
-//           'input[name="allergy"]:checked',
-//         );
-//         if (!allergySelected) {
-//           allergyError.classList.add("show");
-//           e.preventDefault();
-//         } else {
-//           allergyError.classList.remove("show");
-//         }
-//       }
-//     });
-//   }
-
-//   // 4. СКРЫВАЕМ ОШИБКУ ALLERGY ПРИ ИЗМЕНЕНИИ PRESENCE
-//   if (presenceYes) {
-//     presenceYes.addEventListener("change", function () {
-//       allergyError.classList.remove("show");
-//     });
-//   }
-// });
 
 function startCountdown(targetDate) {
   function updateTimer() {
@@ -224,27 +163,18 @@ button.addEventListener("touchend", function (e) {
 function initScrollAnimation() {
   const containers = document.querySelectorAll(".conteiner");
 
-  // Создаём наблюдатель
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        // Если элемент появился в зоне видимости
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-
-          // Останавливаем наблюдение для этого элемента
           observer.unobserve(entry.target);
         }
       });
     },
-   
   );
-
-  // Начинаем следить за каждым контейнером
   containers.forEach((container) => {
     observer.observe(container);
   });
 }
-
-// Запускаем после загрузки страницы
 document.addEventListener("DOMContentLoaded", initScrollAnimation);

@@ -165,7 +165,7 @@ if (nameParam) {
     !decodedName.includes("Бабушка Ира") &&
     !decodedName.includes("Бабушка Галя") &&
     !decodedName.includes("Тетя Света") &&
-    !decodedName.includes("Тетя Лариса") && !decodedName.includes("Тетя Светлана") &&
+    !decodedName.includes("Тетя Лариса") && !decodedName.includes("Тетя Светлана")
   ) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;

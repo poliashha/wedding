@@ -135,9 +135,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const nameParam = urlParams.get("name");
 const arr = [
   "Анна","Аня",
-  "Бабушка","Бабушка Ира","Бабушка Света",
+  "Бабушка","Бабушка Ира","Бабушка Света", "Бабушка Света", "Бабушка Галя",
   "Наташа","Наталия",
-  "Тетя Таня",
+  "Тетя Таня","Тетя Света", "Тетя Светалана",
   "Марина",
   "Шура","Саша","Александра",
   "Катя","Екатерина",
@@ -145,13 +145,15 @@ const arr = [
   "Лена", "Елена",
   "Лиана",
   "Лера","Валерия",
-  "Полина", 
+  "Полина", "Поля",
   "Ульяна",
   "Влада",
-  "Лариса",
+  "Тетя Лариса",
   "Таня", "Татьяна",
   "Надя", "Надежда"
 ];
+
+
 if (nameParam) {
   const decodedName = decodeURIComponent(nameParam.replace(/\+/g, " "));
 
@@ -160,7 +162,10 @@ if (nameParam) {
 
   if (
     decodedName.includes(" ") &&
-    !decodedName.includes("Бабушка Ира")
+    !decodedName.includes("Бабушка Ира") &&
+    !decodedName.includes("Бабушка Галя") &&
+    !decodedName.includes("Тетя Света") &&
+    !decodedName.includes("Тетя Лариса") && !decodedName.includes("Тетя Светлана") &&
   ) {
     document.getElementById("greeting").textContent =
       `Уважаемые ${decodedName},`;
